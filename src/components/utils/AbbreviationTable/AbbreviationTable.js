@@ -60,7 +60,7 @@ class AbbreviationTable extends React.Component {
   }
 
   changePage(event, newPage) {
-    if (this.state.currentOptions.length >= 25) {
+    if (this.state.currentOptions.length >=  25) {
       let query = this.props.firebase.getAbbreviationsStartingWith(this.props.currentAbbrev, this.state.pageStarts[newPage])
       let nextPage = newPage + 1
       this.setState({ 
