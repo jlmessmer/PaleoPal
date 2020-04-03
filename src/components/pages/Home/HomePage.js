@@ -3,6 +3,11 @@ import React from 'react'
 import {
   CssBaseline, Typography, Container, Grid, Button, Card, CardContent
 } from '@material-ui/core'
+
+import {
+  Link
+} from 'react-router-dom'
+
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -43,15 +48,15 @@ class HomePage extends React.Component {
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                PaleoPal
+                Amicus Pal&aelig;ographicorum
             </Typography>
               <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Crush the Latin abbreviations that you don't recognize with PaleoPal!
-            </Typography>
+                Crush the Latin abbreviations that you don't recognize with Amplorum
+              </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                   <Grid item>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" component={Link} to='/search'>
                       Search Now
                   </Button>
                   </Grid>
@@ -86,7 +91,7 @@ class HomePage extends React.Component {
                       Free
                   </Typography>
                     <Typography>
-                      PaleoPal is, and always will be, free to use for historians. We want to be as accessible to possible to all researchers.
+                      The Amicus Pal&aelig;ographicorum (or Amplorum) is, and always will be, free to use for historians. We want to be as accessible to possible to all researchers.
                   </Typography>
                   </CardContent>
                 </Card>
@@ -98,7 +103,7 @@ class HomePage extends React.Component {
                       Simple
                   </Typography>
                     <Typography>
-                      We built our application to be as simple to use as possible, so you don't have to waste time learning how to use PaleoPal.
+                      We built our application to be as simple to use as possible, so you don't have to waste time learning how to use Amplorum.
                   </Typography>
                   </CardContent>
                 </Card>

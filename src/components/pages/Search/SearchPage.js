@@ -17,28 +17,14 @@ class SearchPage extends React.Component {
     super(props)
 
     this.state = {
-      loading: false,
-      currentOptions: []
+      currentAbbrev: ''
     }
-    this.sendRequest = this.sendRequest.bind(this)
+    this.updateAbbrev = this.updateAbbrev.bind(this)
   }
-  sendRequest(event) {
+  updateAbbrev(event) {
     let value = event.target.value
-    let query = this.props.firebase.getAbbreviationsStartingWith(value)
-    this.setState({ 
-      loading: true,
-      currentOptions: []
-     })
-    query.get().then((querySnapshot) => {
-      let newOptions = []
-      querySnapshot.forEach((doc) => {
-        let abbrev = doc.data()
-        newOptions.push(abbrev)
-      })
-      this.setState({
-        currentOptions: newOptions,
-        loading: false
-      })
+    this.setState({
+      currentAbbrev: value
     })
   }
 
@@ -56,7 +42,7 @@ class SearchPage extends React.Component {
               </Grid>
               <Grid item xs={12} style={{ textAlign: 'center' }}>
                 <TextField
-                  onChange={this.sendRequest}
+                  onChange={this.updateAbbrev}
                   label="Input abbreviation"
                   helperText="Type the abbreviation as it appears on the page"
                 />
@@ -64,7 +50,7 @@ class SearchPage extends React.Component {
             </Grid>
             <Grid>
               <Grid item xs={12}>
-                <AbbreviationTable loading={this.state.loading} abbreviations={this.state.currentOptions} />
+                {this.state.currentAbbrev !== '' && <AbbreviationTable currentAbbrev={this.state.currentAbbrev} /> }
               </Grid>
             </Grid>
           </Container>

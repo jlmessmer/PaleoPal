@@ -21,15 +21,16 @@ class Firebase {
     app.firestore().enablePersistence()
   }
 
-  getAbbreviationsStartingWith(input) {
+  getAbbreviationsStartingWith(input, startingPoint) {
     let db = app.firestore()
     let abbreviationsRef = db.collection("abbreviations")
     let upperLimit = `${input.substring(0, input.length - 1)}${String.fromCharCode(input.charCodeAt(input.length - 1) + 1)}`
-    console.log(`${input} <= matches < ${upperLimit}`)
     let query = abbreviationsRef
       .where("text", ">=", input)
       .where("text", "<", upperLimit)
-      .limit(25)
+      .orderBy("text")
+      .startAt(startingPoint)
+      .limit(26)
     return query
   }
 

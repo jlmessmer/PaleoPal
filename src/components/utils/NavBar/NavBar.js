@@ -28,7 +28,7 @@ class NavBar extends React.Component {
           <AppBar position="static">
             <Toolbar>
               <Button color='inherit' component={Link} to='/'>
-                PaleoPal
+                Amplorum
               </Button>
               <span className={classes.title} />
               <Button color="inherit" component={Link} to='/search'>Search</Button>
