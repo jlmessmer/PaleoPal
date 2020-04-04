@@ -3,9 +3,12 @@ import React from 'react'
 import { withFirebase } from '../Firebase'
 import { 
   TableRow,
-  TableCell,
-  CircularProgress 
+  TableCell
 } from '@material-ui/core'
+
+import {
+  Skeleton
+} from '@material-ui/lab'
 
 class AbbreviationRow extends React.Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class AbbreviationRow extends React.Component {
       <React.Fragment>
         <TableRow key={this.props.abbreviation.img_num}>
           <TableCell>
-            {this.state.loading && <CircularProgress />}
+            {this.state.loading && <Skeleton variant='rect' width={50} height={50} />}
             {!this.state.loading && <img src={this.state.imgUrl} alt='scribal abbreviation' />}
           </TableCell>
           <TableCell>{this.props.abbreviation.text}</TableCell>
