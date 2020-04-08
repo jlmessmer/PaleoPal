@@ -10,6 +10,8 @@ import {
 
 import { withStyles } from "@material-ui/core/styles";
 
+import logo from '../../../assets/logo.png'
+
 const styles = theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -35,6 +37,31 @@ const styles = theme => ({
   },
   cardContent: {
     flexGrow: 1,
+  },
+  mainIcon: {
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    },
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'right',
+      paddingRight: '2rem;'
+    }
+  },
+  mainText: {
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    },
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'left',
+    }
+  },
+  mainButtons: {
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center'
+    },
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'flex-start',
+    }
   }
 });
 
@@ -46,28 +73,33 @@ class HomePage extends React.Component {
         <CssBaseline />
         <main>
           <div className={classes.heroContent}>
-            <Container maxWidth="sm">
-              <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                Amicus Pal&aelig;ographicorum
-            </Typography>
-              <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Crush the Latin abbreviations that you don't recognize with Amplorum
+            <Grid container maxWidth="sm" spacing={2} justify="center">
+              <Grid className={classes.mainIcon} item xs={12} sm={6} md={4}>
+                <img src={logo} alt='Amplorum logo' />
+              </Grid>
+              <Grid item xs={12} sm={6} md={8}>
+                <Typography className={classes.mainText} style={{overflowWrap: 'break-word' }} component="h1" variant="h2" align="left" color="textPrimary" gutterBottom>
+                  Amicus Pal&aelig;ographicorum
               </Typography>
-              <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center">
-                  <Grid item>
-                    <Button variant="contained" color="primary" component={Link} to='/search'>
-                      Search Now
+                <Typography className={classes.mainText}  variant="h5" align="left" color="textSecondary" paragraph>
+                  Crush the Latin abbreviations that you don't recognize with Amplorum
+              </Typography>
+                <div className={classes.heroButtons}>
+                  <Grid container className={classes.mainButtons} spacing={2}>
+                    <Grid item>
+                      <Button variant="contained" color="primary" component={Link} to='/search'>
+                        Search Now
                   </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary">
-                      Learn More
+                    </Grid>
+                    <Grid item>
+                      <Button variant="outlined" color="primary">
+                        Learn More
                   </Button>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </div>
-            </Container>
+                </div>
+              </Grid>
+            </Grid>
           </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
@@ -79,7 +111,7 @@ class HomePage extends React.Component {
                       Fast
                   </Typography>
                     <Typography>
-                      Our web application is blazing-fast, so you can decipher an abbreviation in mere seconds.
+                      Our web application iszing-fast, so you can decipher an abbreviation in mere seconds.
                   </Typography>
                   </CardContent>
                 </Card>
