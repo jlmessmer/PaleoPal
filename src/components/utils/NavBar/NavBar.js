@@ -32,7 +32,7 @@ class NavBar extends React.Component {
               </Button>
               <span className={classes.title} />
               <Button color="inherit" component={Link} to='/search'>Search</Button>
-              <Button color="inherit">About</Button>
+              <Button color="inherit" component={Link} to='/about'>About</Button>
               <Button color="inherit">Credits</Button>
             </Toolbar>
           </AppBar>

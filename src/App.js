@@ -23,6 +23,7 @@ import './App.css';
 
 import HomePage from './components/pages/Home'
 import SearchPage from './components/pages/Search'
+import AboutPage from './components/pages/About'
 
 import NavBar from './components/utils/NavBar'
 
@@ -60,6 +61,9 @@ class App extends React.Component {
               </Route>
               <Route path='/search'>
                 <SearchPage />
+              </Route>
+              <Route path='/about'>
+                <AboutPage />
               </Route>
             </Switch>
             <footer className={classes.footer}>
