@@ -3,6 +3,7 @@ import {
   Container,
   CssBaseline,
   Grid,
+  Paper,
   Typography,
   TextField
 } from '@material-ui/core'
@@ -33,25 +34,24 @@ class SearchPage extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <main>
-          <Container style={{ minHeight: '100vh', paddingTop: '2rem' }}>
-            <Grid>
-              <Grid item xs={12}>
-                <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
-                  Search for an abbreviation
-              </Typography>
-              </Grid>
-              <Grid item xs={12} style={{ textAlign: 'center' }}>
-                <TextField
-                  onChange={this.updateAbbrev}
-                  label="Input abbreviation"
-                  helperText="Type the abbreviation as it appears on the page"
-                />
-              </Grid>
-            </Grid>
-            <Grid>
-              <Grid item xs={12}>
-                {this.state.currentAbbrev !== '' && <AbbreviationTable currentAbbrev={this.state.currentAbbrev} /> }
-              </Grid>
+          <Container style={{ minHeight: '100vh'}}>
+            <Grid xl={12}>
+              <Paper style={{ marginTop: '2rem', marginBottom: '2rem', padding: '2rem' }}>
+                <Typography variant="h3" align="left">Search</Typography>
+                <hr />
+                <Grid item xs={12} style={{ textAlign: 'center' }}>
+                  <TextField
+                    onChange={this.updateAbbrev}
+                    label="Input abbreviation"
+                    helperText="Type the abbreviation as it appears on the page"
+                  />
+                </Grid>
+                <Grid>
+                  <Grid item xs={12}>
+                    {this.state.currentAbbrev !== '' && <AbbreviationTable currentAbbrev={this.state.currentAbbrev} />}
+                  </Grid>
+                </Grid>
+              </Paper>
             </Grid>
           </Container>
         </main>

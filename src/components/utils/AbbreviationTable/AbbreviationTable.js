@@ -90,7 +90,7 @@ class AbbreviationTable extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} variant='outlined' elevation={0}>
             <Table>
               <TableHead>
                 <TableRow>

@@ -73,11 +73,11 @@ class HomePage extends React.Component {
         <CssBaseline />
         <main>
           <div className={classes.heroContent}>
-            <Grid container maxWidth="sm" spacing={2} justify="center">
+            <Grid container maxWidth="sm" justify="center">
               <Grid className={classes.mainIcon} item xs={12} sm={6} md={4}>
                 <img src={logo} alt='Amplorum logo' />
               </Grid>
-              <Grid item xs={12} sm={6} md={8}>
+              <Grid item xs={12} sm={6} md={7}>
                 <Typography className={classes.mainText} style={{overflowWrap: 'break-word' }} component="h1" variant="h2" align="left" color="textPrimary" gutterBottom>
                   Amicus Pal&aelig;ographicorum
               </Typography>
@@ -92,7 +92,7 @@ class HomePage extends React.Component {
                   </Button>
                     </Grid>
                     <Grid item>
-                      <Button variant="outlined" color="primary">
+                      <Button variant="outlined" color="primary" component={Link} to='/about'>
                         Learn More
                   </Button>
                     </Grid>
